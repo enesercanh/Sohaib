@@ -20,21 +20,20 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
-            padding: 10px;
             background-color: green;
+            padding: 10px;
         }
 
         .header-text {
             text-align: center;
             color: white;
             flex: 1;
-            padding: 10px 20px;
         }
 
         .logo {
-            max-width: 80px;
+            max-width: 100px; /* Larger logos */
             height: auto;
+            margin: 0 10px;
         }
 
         #toggle-btn {
@@ -54,12 +53,12 @@
         }
 
         @media screen and (max-width: 600px) {
-            .header-container {
-                flex-direction: column;
+            .logo {
+                max-width: 120px; /* Larger logo for mobile */
             }
 
-            .logo {
-                max-width: 60px;
+            .header-container {
+                flex-direction: column;
             }
 
             #toggle-btn {
@@ -106,8 +105,8 @@
         <section id="about">
             <h2 class="arabic">من نحن</h2>
             <h2 class="english hidden">About Us</h2>
-            <p class="arabic">ثانوية حكومية تأسست عام 1990 و تتبع نظام المتميزين الحكومي, يجب عبور اختبار ذكاء للدخول للمدرسة.</p>
-            <p class="english hidden">A government high school founded in 1990 and follows the government system for distinguished students. An IQ test must be passed to enter the school.</p>
+            <p class="about-text arabic">ثانوية حكومية تأسست عام 1990 و تتبع نظام المتميزين الحكومي, يجب عبور اختبار ذكاء للدخول للمدرسة.</p>
+            <p class="about-text english hidden">A public secondary school founded in 1990. We are part of the public program for distinguished students. A highly selective IQ test must be passed to enter the school. Scientific subjects are instructed in English.</p>
         </section>
         <section id="gallery">
             <h2 class="arabic">معرض الصور</h2>
