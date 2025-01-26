@@ -6,103 +6,65 @@
     <title>ثانوية المتميزين الخضراء</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
+        .hidden {
+            display: none;
         }
 
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px;
-            background-color: green;
-            color: white;
+        .images img {
+            width: 200px;
+            height: auto;
+            margin: 10px;
         }
 
         .header-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 100%;
+            flex-wrap: wrap;
+            padding: 10px;
+            background-color: green;
         }
 
         .header-text {
             text-align: center;
+            color: white;
             flex: 1;
+            padding: 10px 20px;
         }
 
         .logo {
             max-width: 80px;
             height: auto;
-            margin: 0 10px;
         }
 
         #toggle-btn {
-            margin: 10px;
-            padding: 8px 16px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
             background-color: white;
             color: green;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
         }
 
         #toggle-btn:hover {
             background-color: lightgray;
         }
 
-        main {
-            margin: 20px;
-        }
-
-        .images {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .images img {
-            width: 100%;
-            max-width: 200px;
-            height: auto;
-            margin: 10px;
-        }
-
-        h2 {
-            font-size: 24px;
-            margin: 20px 0;
-        }
-
-        .about-text {
-            font-size: 18px;
-            line-height: 1.6;
-            margin: 20px;
-        }
-
-        section {
-            margin-bottom: 30px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: green;
-            color: white;
-        }
-
         @media screen and (max-width: 600px) {
+            .header-container {
+                flex-direction: column;
+            }
+
             .logo {
                 max-width: 60px;
             }
 
-            .header-container {
-                flex-direction: column;
-                text-align: center;
+            #toggle-btn {
+                position: static;
+                margin: 10px auto;
             }
         }
     </style>
@@ -111,17 +73,14 @@
             const arabicContent = document.querySelectorAll('.arabic');
             const englishContent = document.querySelectorAll('.english');
             const html = document.querySelector('html');
-            const body = document.body;
 
             if (html.lang === 'ar') {
                 html.lang = 'en';
-                body.style.direction = 'ltr';
                 document.getElementById('toggle-btn').innerText = 'العربية';
                 arabicContent.forEach(el => el.classList.add('hidden'));
                 englishContent.forEach(el => el.classList.remove('hidden'));
             } else {
                 html.lang = 'ar';
-                body.style.direction = 'rtl';
                 document.getElementById('toggle-btn').innerText = 'English';
                 arabicContent.forEach(el => el.classList.remove('hidden'));
                 englishContent.forEach(el => el.classList.add('hidden'));
@@ -147,27 +106,39 @@
         <section id="about">
             <h2 class="arabic">من نحن</h2>
             <h2 class="english hidden">About Us</h2>
-            <p class="arabic">ثانوية حكومية تأسست عام 1990 و تتبع نظام المتميزين الحكومي, يجب عبور اختبار ذكاء صعب للدخول للمدرسة. المواد العلمية تدرس باللغة الانكليزية.</p>
-            <p class="english hidden">A public secondary school founded in 1990. We are part of the public program for distinguished students. A highly selective IQ test must be passed to enter the school. Scientific subjects are instructed in English.</p>
+            <p class="arabic">ثانوية حكومية تأسست عام 1990 و تتبع نظام المتميزين الحكومي, يجب عبور اختبار ذكاء للدخول للمدرسة.</p>
+            <p class="english hidden">A government high school founded in 1990 and follows the government system for distinguished students. An IQ test must be passed to enter the school.</p>
         </section>
         <section id="gallery">
             <h2 class="arabic">معرض الصور</h2>
             <h2 class="english hidden">Gallery</h2>
             <div class="images">
-                <!-- Displaying all 13 pictures -->
-                <img src="images/pic1.jpg" alt="صورة المدرسة 1">
-                <img src="images/pic2.jpg" alt="صورة المدرسة 2">
-                <img src="images/pic3.jpg" alt="صورة المدرسة 3">
-                <img src="images/pic4.jpg" alt="صورة المدرسة 4">
-                <img src="images/pic5.jpg" alt="صورة المدرسة 5">
-                <img src="images/pic6.jpg" alt="صورة المدرسة 6">
-                <img src="images/pic7.jpg" alt="صورة المدرسة 7">
-                <img src="images/pic8.jpg" alt="صورة المدرسة 8">
-                <img src="images/pic9.jpg" alt="صورة المدرسة 9">
-                <img src="images/pic10.jpg" alt="صورة المدرسة 10">
-                <img src="images/pic11.jpg" alt="صورة المدرسة 11">
-                <img src="images/pic12.jpg" alt="صورة المدرسة 12">
-                <img src="images/pic13.jpg" alt="صورة المدرسة 13">
+                <img src="images/pic1.jpg" alt="صورة المدرسة 1" class="arabic">
+                <img src="images/pic1.jpg" alt="School Image 1" class="english hidden">
+                <img src="images/pic2.jpg" alt="صورة المدرسة 2" class="arabic">
+                <img src="images/pic2.jpg" alt="School Image 2" class="english hidden">
+                <img src="images/pic3.jpg" alt="صورة المدرسة 3" class="arabic">
+                <img src="images/pic3.jpg" alt="School Image 3" class="english hidden">
+                <img src="images/pic4.jpg" alt="صورة المدرسة 4" class="arabic">
+                <img src="images/pic4.jpg" alt="School Image 4" class="english hidden">
+                <img src="images/pic5.jpg" alt="صورة المدرسة 5" class="arabic">
+                <img src="images/pic5.jpg" alt="School Image 5" class="english hidden">
+                <img src="images/pic6.jpg" alt="صورة المدرسة 6" class="arabic">
+                <img src="images/pic6.jpg" alt="School Image 6" class="english hidden">
+                <img src="images/pic7.jpg" alt="صورة المدرسة 7" class="arabic">
+                <img src="images/pic7.jpg" alt="School Image 7" class="english hidden">
+                <img src="images/pic8.jpg" alt="صورة المدرسة 8" class="arabic">
+                <img src="images/pic8.jpg" alt="School Image 8" class="english hidden">
+                <img src="images/pic9.jpg" alt="صورة المدرسة 9" class="arabic">
+                <img src="images/pic9.jpg" alt="School Image 9" class="english hidden">
+                <img src="images/pic10.jpg" alt="صورة المدرسة 10" class="arabic">
+                <img src="images/pic10.jpg" alt="School Image 10" class="english hidden">
+                <img src="images/pic11.jpg" alt="صورة المدرسة 11" class="arabic">
+                <img src="images/pic11.jpg" alt="School Image 11" class="english hidden">
+                <img src="images/pic12.jpg" alt="صورة المدرسة 12" class="arabic">
+                <img src="images/pic12.jpg" alt="School Image 12" class="english hidden">
+                <img src="images/pic13.jpg" alt="صورة المدرسة 13" class="arabic">
+                <img src="images/pic13.jpg" alt="School Image 13" class="english hidden">
             </div>
         </section>
         <section id="contact">
